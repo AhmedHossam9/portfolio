@@ -10,7 +10,7 @@
   }
   
   body {
-    @apply font-sans text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-900 transition-all duration-500 ease-out;
+    @apply font-sans text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-900 transition-colors duration-300 ease-out;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -36,7 +36,7 @@
 
   /* Smooth background transitions */
   .bg-transition {
-    transition: background-color 0.5s ease-out, background-image 0.5s ease-out;
+    transition: background-color 0.3s ease-out, background-image 0.3s ease-out;
   }
 }
 
