@@ -138,6 +138,10 @@ export const aboutData = {
     "Currently, I work as an ATM/POS Technical Administrator at E-Finance, where I manage and troubleshoot nationwide banking transaction systems.",
     "Previously, I interned at Banque Misr's Digital Factory, contributing to data-driven decision-making through machine learning and analytics.",
     "I've led and built several end-to-end projects — from public transport mobile apps to AI-powered production line monitoring systems."
+  ],
+  languages: [
+    { name: "Arabic", level: "Native" },
+    { name: "English", level: "Fluent" }
   ]
 };
 

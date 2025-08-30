@@ -54,10 +54,25 @@ export default function About() {
             viewport={{ once: true, amount: 0.3 }}
             className="space-y-8"
           >
-            {/* Profile Image Placeholder */}
+            {/* Profile Image */}
             <div className="relative">
-              <div className="w-80 h-80 mx-auto bg-gradient-to-br from-primary-400 to-primary-600 rounded-full flex items-center justify-center shadow-2xl">
-                <User size={120} className="text-white" />
+              <div className="w-80 h-80 mx-auto rounded-full overflow-hidden shadow-2xl border-4 border-white dark:border-gray-700">
+                <img 
+                  src="/profile-picture.jpg" 
+                  alt="Ahmed Hossam" 
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    // Fallback to placeholder if image fails to load
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    const fallback = target.parentElement?.querySelector('.fallback') as HTMLElement;
+                    if (fallback) fallback.style.display = 'flex';
+                  }}
+                />
+                {/* Fallback placeholder */}
+                <div className="fallback hidden w-full h-full bg-gradient-to-br from-primary-400 to-primary-600 items-center justify-center">
+                  <User size={120} className="text-white" />
+                </div>
               </div>
               
               {/* Floating Elements */}
@@ -76,6 +91,28 @@ export default function About() {
               >
                 <Lightbulb size={24} className="text-white" />
               </motion.div>
+            </div>
+
+            {/* Language Skills */}
+            <div className="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-gray-600">
+              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 text-center">Languages</h4>
+              <div className="space-y-3">
+                {aboutData.languages?.map((language, index) => (
+                  <motion.div
+                    key={language.name}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex justify-between items-center"
+                  >
+                    <span className="text-gray-700 dark:text-gray-300 font-medium">{language.name}</span>
+                    <span className="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 text-sm rounded-full">
+                      {language.level}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
             </div>
 
             {/* Quick Skills */}
